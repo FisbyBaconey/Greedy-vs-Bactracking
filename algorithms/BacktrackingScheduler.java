@@ -6,10 +6,8 @@ import models.StandAssignment;
 import models.Tenant;
 
 public class BacktrackingScheduler {
-
     private final List<Tenant> tenants;
     private final int totalZones;
-
     private List<StandAssignment> bestSolution;
     private int bestCount;
 
@@ -31,7 +29,7 @@ public class BacktrackingScheduler {
     private void backtrack(int tenantIndex, int[] zoneAllocation, int acceptedCount) {
         int remainingTenants = tenants.size() - tenantIndex;
         if (acceptedCount + remainingTenants <= bestCount) {
-            return; // Pruning: hentikan jika sisa tenant tidak akan melampaui rekor terbaik
+            return; // Menghentikan jika sisa tenant tidak akan melampaui rekor terbaik
         }
 
         if (tenantIndex == tenants.size()) {
@@ -49,7 +47,6 @@ public class BacktrackingScheduler {
                 zoneAllocation[tenantIndex] = 0; 
             }
         }
-
         backtrack(tenantIndex + 1, zoneAllocation, acceptedCount);
     }
 
@@ -68,7 +65,6 @@ public class BacktrackingScheduler {
 
         for (int i = 0; i < tenantIndex; i++) {
             if (zoneAllocation[i] == 0) continue;
-
             Tenant otherTenant = tenants.get(i);
             boolean timeOverlap = isTimeOverlap(currentTenant, otherTenant);
 

@@ -7,7 +7,6 @@ import models.StandAssignment;
 import models.Tenant;
 
 public class GreedyScheduler {
-
     private final int totalZones;
     private final List<Tenant> rejectedTenants = new ArrayList<>();
 
@@ -41,7 +40,6 @@ public class GreedyScheduler {
                 rejectedTenants.add(tenant);
             }
         }
-
         return assignments;
     }
 
@@ -52,10 +50,10 @@ public class GreedyScheduler {
 
             if (timeOverlap) {
                 if (assignment.getZoneNumber() == zone) {
-                    return false; // Ditolak: 1 Stand fisik tidak bisa dipakai 2 tenant di jam yang sama
+                    return false; // 1 Stand fisik tidak bisa dipakai 2 tenant di jam yang sama
                 }
                 if (current.getCategory().equalsIgnoreCase(other.getCategory())) {
-                    return false; // Ditolak: Kategori sama tidak boleh jualan barengan di jam yang sama
+                    return false; // Kategori sama tidak boleh jualan barengan di jam yang sama
                 }
             }
         }

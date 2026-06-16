@@ -1,8 +1,8 @@
 package utils;
 
 public class TimeHelper {
-    private static final String[] DAYS = {"Senin","Selasa","Rabu","Kamis",
-        "Jumat","Sabtu","Minggu"
+    private static final String[] DAYS = {"Senin","Selasa","Rabu",
+        "Kamis","Jumat","Sabtu","Minggu"
     };
 
     public static String format(int hour) {
